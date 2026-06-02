@@ -1,0 +1,16 @@
+order_id,customer_name,region,product,quantity,unit_price,order_date
+1001,John Smith,West,Widget A,10,25.00,2024-01-05
+1002,Jane Doe,East,Widget B,5,40.00,2024-01-07
+1003,Bob Jones,West,Widget A,,25.00,2024-01-10
+1004,Alice Brown,North,Widget C,3,60.00,2024-01-12
+1005,John Smith,,Widget A,12,25.00,2024-01-15
+1006,Carol White,South,Widget B,7,40.00,2024-01-18
+1002,Jane Doe,East,Widget B,5,40.00,2024-01-07
+1008,Tom Black,West,Widget B,-4,40.00,2024-01-22
+1009,Sara Green,South,Widget A,9,25.00,2024-01-25
+1010,Mike Gray,East,Widget C,6,-60.00,2024-01-28
+1011,John Smith,West,Widget A,11,25.00,2024-02-01
+1012,Lisa Red,North,Widget B,3,40.00,2024-02-03
+1013,Paul Blue,South,Widget C,5,60.00,2024-02-06
+1014,Nina Gold,East,Widget A,7,25.00,2024-02-09
+1015,Chris Pink,West,Widget C,999,60.00,2024-02-12
