@@ -1,0 +1,11 @@
+voyage_id,ship_name,destination,passengers,revenue_usd,departure_date
+V001,Sky Princess,Caribbean,2800,4200000,2024-01-07
+V002,Crown Princess,Alaska,2400,3800000,2024-01-14
+V003,Ruby Princess,Mediterranean,3100,5600000,2024-01-21
+V004,Sky Princess,Alaska,2750,4100000,2024-01-28
+V005,Crown Princess,Caribbean,2600,3900000,2024-02-04
+V006,Ruby Princess,Caribbean,3050,5200000,2024-02-11
+V007,Sky Princess,Mediterranean,2900,5100000,2024-02-18
+V008,Crown Princess,Mediterranean,2450,4400000,2024-02-25
+V009,Ruby Princess,Alaska,3000,4700000,2024-03-03
+V010,Sky Princess,Caribbean,2800,4300000,2024-03-10
