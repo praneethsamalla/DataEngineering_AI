@@ -1,0 +1,56 @@
+DATA ENGINEERING CONCEPTS
+==========================
+Reference notes on DE tools and concepts — updated as learned.
+
+dbt (data build tool)
+----------------------
+What it is: A tool that lets you write SQL transforms as version-controlled models.
+SQL analogy: Like writing a library of reusable views/stored procs, with built-in testing.
+When to use: Transforming raw data inside a warehouse (Snowflake, BigQuery, etc.)
+Status: Not started — planned after Snowflake trial account is set up
+
+AIRFLOW
+-------
+What it is: A pipeline scheduler — defines and runs workflows on a schedule.
+SQL analogy: Like SQL Server Agent Jobs, but for Python pipelines with dependencies.
+Key concept: DAG (Directed Acyclic Graph) = a map of tasks and the order to run them.
+Status: Not started — planned after basic pipeline projects
+
+DOCKER
+------
+What it is: Packages your code + environment into a container that runs anywhere.
+SQL analogy: Like a self-contained VM image, but lightweight.
+Why DE uses it: Guarantees your pipeline runs the same on your Mac as on a cloud server.
+Status: Not started — planned after Project 05
+
+PARQUET (file format)
+---------------------
+What it is: A column-based file format (vs CSV which is row-based).
+Why it matters: Much faster for analytics queries, smaller file size, preserves data types.
+SQL analogy: Like a columnar store (Snowflake's internal format is columnar).
+Status: Not started — good next topic after pandas deep dive
+
+REST APIs
+---------
+What it is: A way to request data from external services over HTTP.
+SQL analogy: Like querying an external database, but the response is JSON not rows.
+Key concepts: GET (fetch data), POST (send data), authentication, pagination.
+Status: ✅ Done — Project 02 (Open-Meteo weather API, requests library)
+
+AZURE DATA FACTORY (ADF)
+------------------------
+What it is: Microsoft's cloud ETL tool — drag-and-drop pipeline builder.
+Relation to my work: Bridges AVD/Snowflake work with modern DE concepts.
+Status: Aware — will revisit after Python pipeline projects
+
+SPARK
+-----
+What it is: Distributed data processing — handles data too large for one machine.
+SQL analogy: Like Snowflake's parallel query processing, but you control the cluster.
+Status: Not started — planned last (Project 08+)
+
+VECTOR DATABASES
+----------------
+What it is: Databases optimized for storing AI embeddings (numerical representations of text).
+Why it matters: Powers AI search, chatbots, recommendation systems.
+Status: Not started — AI/ML phase

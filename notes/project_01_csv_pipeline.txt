@@ -1,0 +1,45 @@
+PROJECT 01 — CSV PIPELINE
+==========================
+Goal: Read a CSV file with Python, transform the data, write output to a new file.
+SQL analogy: SELECT + WHERE + GROUP BY, then write results to a flat file.
+Folder: ~/learning/DataEngineering_AI/projects/01_csv_pipeline/
+
+SETUP STEPS
+-----------
+1. Create project folder:
+   mkdir -p ~/learning/DataEngineering_AI/projects/01_csv_pipeline
+
+2. Create virtual environment:
+   cd ~/learning/DataEngineering_AI/projects/01_csv_pipeline
+   python3 -m venv venv
+
+3. Activate venv:
+   source venv/bin/activate
+   (prompt will show "(venv)" when active)
+
+4. Install pandas:
+   pip install pandas
+
+5. Save dependencies:
+   pip freeze > requirements.txt
+
+PIPELINE STEPS (what the script does)
+--------------------------------------
+1. Read CSV into a pandas DataFrame     → like loading a flat file into a staging table
+2. Inspect the data (head, dtypes)      → like SELECT TOP 10 + sp_help
+3. Filter rows                          → WHERE clause
+4. Aggregate / summarize                → GROUP BY
+5. Write output to a new CSV            → like INSERT INTO or COPY INTO
+
+KEY FILES IN PROJECT
+---------------------
+pipeline.py        → main script
+data/input.csv     → source data
+data/output.csv    → transformed result
+requirements.txt   → package list
+.gitignore         → excludes venv, __pycache__
+README.md          → project description
+
+WHAT I LEARNED
+--------------
+(fill in as you go)

@@ -1,0 +1,43 @@
+PYTHON BASICS
+=============
+
+VIRTUAL ENVIRONMENTS (venv)
+----------------------------
+What it is: An isolated Python sandbox per project.
+SQL analogy: Like a separate schema — packages installed here don't affect other projects.
+
+Commands:
+  Create:     python3 -m venv venv
+  Activate:   source venv/bin/activate
+  Deactivate: deactivate
+  (venv) in your terminal prompt = you are inside the environment
+
+PIP — PACKAGE MANAGER
+----------------------
+What it is: Downloads and installs Python libraries.
+SQL analogy: Like downloading a Snowflake connector or ODBC driver.
+
+Commands:
+  Install a package:        pip install pandas
+  Save all dependencies:    pip freeze > requirements.txt
+  Install from saved list:  pip install -r requirements.txt
+
+REQUIREMENTS.TXT
+----------------
+What it is: A list of every package your project needs and their versions.
+Why it matters: Anyone (or any server) can recreate your exact environment.
+Always run after installing new packages: pip freeze > requirements.txt
+
+PYTHON ↔ SQL CHEAT SHEET
+--------------------------
+pd.read_csv()        → COPY INTO / loading a flat file
+df.head()            → SELECT * ... LIMIT 10
+df[df['col'] > x]   → WHERE col > x
+df.groupby().agg()   → GROUP BY with aggregates
+df.merge()           → JOIN
+df.fillna()          → COALESCE()
+df.drop_duplicates() → DISTINCT
+df.sort_values()     → ORDER BY
+df.to_csv()          → writing results to a file
+def my_function()    → stored procedure (but more flexible)
+try / except         → error handling (no SQL equivalent)

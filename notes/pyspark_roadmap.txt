@@ -1,0 +1,68 @@
+PYSPARK LEARNING ROADMAP
+========================
+Priority: HIGH — most in-demand skill gap for DE roles (Python/PySpark jobs)
+Target role: Data Engineer with Python/PySpark (3-6 years experience bracket)
+
+WHAT IS PYSPARK
+---------------
+PySpark = Python API for Apache Spark.
+Spark = distributed data processing engine — handles data too large for one machine.
+SQL analogy: Like Snowflake's parallel query engine, but you control the cluster
+and write the processing logic in Python instead of SQL.
+
+WHY IT MATTERS FOR THE JOB MARKET
+-----------------------------------
+- Most big data DE roles require PySpark
+- It's Python + SQL thinking — your background maps directly
+- Companies use it for processing millions of rows across multiple servers
+- KYC/AML, financial data, clickstream data — all processed with Spark
+
+HOW PYSPARK RELATES TO WHAT YOU KNOW
+--------------------------------------
+| PySpark                    | What you already know         |
+|----------------------------|-------------------------------|
+| SparkSession               | Database connection            |
+| DataFrame                  | pandas DataFrame / SQL table  |
+| df.filter()                | WHERE clause                  |
+| df.groupBy().agg()         | GROUP BY with aggregates      |
+| df.join()                  | SQL JOIN                      |
+| df.select()                | SELECT columns                |
+| spark.sql("SELECT ...")    | Literally write SQL in Spark  |
+| df.write.parquet()         | Write output to Parquet files |
+| schema definition          | CREATE TABLE with data types  |
+
+LEARNING PATH (in order)
+-------------------------
+1. Install PySpark locally (via pip — no cluster needed to learn)
+2. SparkSession — creating a Spark entry point
+3. Reading files into Spark DataFrames (CSV, JSON, Parquet)
+4. Basic transformations — select, filter, groupBy, agg
+5. Spark SQL — run SQL directly on DataFrames
+6. Joins — inner, left, right (same as SQL)
+7. Writing output — CSV, Parquet
+8. Schema definition and schema drift
+9. Performance basics — partitioning, caching
+10. Kafka integration — reading streaming data (later)
+
+INSTALL (when ready to start)
+------------------------------
+pip install pyspark
+
+Note: PySpark requires Java. Install with:
+   brew install openjdk@11
+   export JAVA_HOME=$(brew --prefix openjdk@11)
+
+INTERVIEW TOPICS TO COVER
+--------------------------
+- Difference between transformations and actions in Spark
+- What is lazy evaluation and why does Spark use it
+- How partitioning affects performance
+- When to use Spark vs pandas (size threshold)
+- Schema drift — what it is and how to handle it
+- Difference between narrow and wide transformations
+
+RESOURCES
+---------
+- PySpark documentation: spark.apache.org/docs/latest/api/python/
+- StrataScratch: stratascratch.com — SQL + Python interview questions
+- HackerRank: hackerrank.com/domains/sql — SQL practice

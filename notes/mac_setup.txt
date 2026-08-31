@@ -1,0 +1,40 @@
+MAC SETUP NOTES
+===============
+Date: 2026-05-27
+
+TOOLS INSTALLED
+---------------
+- Homebrew 5.1.14   → Mac package manager (like apt/yum on Linux)
+- Python 3.12.13    → installed via brew
+- Git 2.50.1        → version control (Apple built-in)
+- VS Code 1.121.0   → code editor
+
+INSTALL COMMANDS
+----------------
+1. Homebrew:
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+2. Add Homebrew to PATH (run after install):
+   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+   eval "$(/opt/homebrew/bin/brew shellenv)"
+
+3. Python 3.12:
+   brew install python@3.12
+   echo 'export PATH="/opt/homebrew/opt/python@3.12/bin:$PATH"' >> ~/.zprofile
+   source ~/.zprofile
+
+4. Python 3.12 symlink fix (so "python3" points to 3.12):
+   ln -s /opt/homebrew/opt/python@3.12/bin/python3.12 /opt/homebrew/opt/python@3.12/bin/python3
+
+5. VS Code:
+   brew install --cask visual-studio-code
+
+VS CODE EXTENSIONS
+------------------
+- Python (Microsoft) — required for Python development
+- Pylance              — better autocomplete
+- GitLens (GitKraken)  — shows git history inline in editor
+
+VERIFY EVERYTHING
+-----------------
+   brew --version && python3 --version && git --version && code --version

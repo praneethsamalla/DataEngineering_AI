@@ -1,0 +1,51 @@
+PROJECT 02 — WEATHER API PIPELINE
+==================================
+Goal: Call a live REST API, save raw JSON, load into pandas, analyze and output CSV.
+SQL analogy: Querying an external source — response is JSON instead of rows.
+Folder: ~/learning/DataEngineering_AI/projects/02_api_pipeline/
+
+API USED
+--------
+Open-Meteo (https://open-meteo.com) — free, no API key needed
+Returns 7-day daily weather forecast for any coordinates
+
+SETUP STEPS
+-----------
+1. mkdir -p ~/learning/DataEngineering_AI/projects/02_api_pipeline/data
+2. cd ~/learning/DataEngineering_AI/projects/02_api_pipeline
+3. python3.12 -m venv venv          ← always use python3.12, not python3
+4. source venv/bin/activate
+5. pip install requests pandas
+6. pip freeze > requirements.txt
+
+PIPELINE STEPS
+--------------
+1. Define API URL and parameters (city coordinates, what data to fetch)
+2. Call API with requests.get()
+3. Check response status code (200 = success)
+4. Save raw JSON to file — always keep a copy of the source
+5. Load "daily" key from JSON into pandas DataFrame
+6. Add calculated columns (Celsius → Fahrenheit)
+7. Summarize (avg high, avg low, total rainfall)
+8. Write output CSV with timestamp in filename
+
+KEY CONCEPTS LEARNED
+--------------------
+- requests.get()     → executes an HTTP GET (like a query to an external DB)
+- response.status_code → 200 = success, 4xx/5xx = error
+- response.json()    → converts JSON text into a Python dictionary
+- json.dump()        → saves Python dict to a .json file
+- Timestamped filenames (strftime) → prevents overwriting previous runs
+- Always save raw source data before transforming — standard DE practice
+
+PYTHON ↔ SQL
+------------
+requests.get(url, params)   → SELECT from external linked server
+response.json()             → parsing the result set
+json.dump()                 → INSERT INTO raw staging table
+pd.DataFrame(dict)          → converting nested data into a flat table
+
+GOTCHA
+------
+Always use python3.12 -m venv venv — using python3 picks up system Python 3.9
+SSL warning with 3.9 venv is harmless but indicates wrong Python version

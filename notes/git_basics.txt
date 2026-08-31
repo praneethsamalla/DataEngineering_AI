@@ -1,0 +1,53 @@
+GIT BASICS
+==========
+
+WHAT IS GIT
+-----------
+Version control — tracks every change you make to your code over time.
+SQL analogy: Like a full audit log of every INSERT/UPDATE/DELETE, with the ability to roll back.
+
+CORE CONCEPTS
+-------------
+Repository (repo) → the project folder Git is tracking
+Commit            → a saved snapshot of your changes (like a checkpoint)
+Branch            → a separate copy to work on without breaking the main code
+Push              → send your commits to GitHub (cloud backup)
+Pull              → get latest changes from GitHub
+
+DAILY WORKFLOW
+--------------
+1. Check what changed:
+   git status
+
+2. Stage files you want to commit:
+   git add filename.py
+   git add .          (adds everything — use carefully)
+
+3. Save a snapshot with a message:
+   git commit -m "what you changed and why"
+
+4. Push to GitHub:
+   git push
+
+BRANCHING (work safely without breaking main)
+---------------------------------------------
+Create and switch to a new branch:
+   git checkout -b feature/my-new-thing
+
+Switch back to main:
+   git checkout main
+
+Merge your branch into main:
+   git merge feature/my-new-thing
+
+USEFUL COMMANDS
+---------------
+git log --oneline    → see recent commits in short format
+git diff             → see what changed since last commit
+git stash            → temporarily save work without committing
+
+.GITIGNORE
+----------
+A file that tells Git what NOT to track.
+Always exclude: venv/, .env, __pycache__, *.pyc
+Never commit secrets (passwords, API keys) — put them in .env and add .env to .gitignore

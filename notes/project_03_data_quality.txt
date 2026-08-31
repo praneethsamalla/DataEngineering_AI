@@ -1,0 +1,50 @@
+PROJECT 03 — DATA QUALITY CHECKER
+===================================
+Goal: Reusable tool that validates a dataset and flags problems before they hit production.
+SQL analogy: Like running reconciliation checks before loading into a target table.
+Folder: ~/learning/DataEngineering_AI/projects/03_data_quality/
+
+SETUP STEPS
+-----------
+1. mkdir -p ~/learning/DataEngineering_AI/projects/03_data_quality/data
+2. cd ~/learning/DataEngineering_AI/projects/03_data_quality
+3. python3.12 -m venv venv
+4. source venv/bin/activate
+5. pip install pandas
+6. pip freeze > requirements.txt
+
+CHECKS IMPLEMENTED
+------------------
+1. Required columns present     → verify expected columns exist in the file
+2. Null values in required fields → like NOT NULL constraints on a SQL table
+3. Duplicate unique keys         → like PRIMARY KEY violation detection
+4. Negative values               → impossible business data (negative price/quantity)
+5. Out of range values           → suspiciously large or small values (configurable)
+
+HOW TO REUSE FOR ANY DATASET
+-----------------------------
+Only change the RULES dictionary at the top of quality_check.py:
+- required_columns: list of columns that must exist
+- not_null: columns that cannot be empty
+- unique: columns that must have no duplicates
+- positive_values: columns that must be > 0
+- value_ranges: min/max bounds per column
+
+OUTPUT
+------
+- Prints report to terminal with issue count and row numbers
+- Saves JSON report to data/quality_report_TIMESTAMP.json
+- Exits with PASS or FAIL
+
+PYTHON ↔ SQL
+------------
+df[df[col].isnull()]                    → WHERE col IS NULL
+df[df.duplicated(subset=[col])]         → GROUP BY col HAVING COUNT(*) > 1
+df[df[col] < 0]                         → WHERE col < 0
+df[(df[col] < min) | (df[col] > max)]  → WHERE col NOT BETWEEN min AND max
+
+KEY INSIGHT
+-----------
+The RULES dict is the only thing that changes per dataset.
+Same script can validate orders, reservations, pricing data — anything.
+This is what enterprise reconciliation frameworks do at scale.
